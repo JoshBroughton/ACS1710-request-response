@@ -31,6 +31,17 @@ def multiply_two_numbers(number1, number2):
         return f'{number1} times {number2} is {product}'
     else:
         return 'Invalid inputs. Please try again by entering 2 numbers!'
-        
+
+@app.route('/sayntimes/<word>/<n>')
+def say_n_times(word, n):
+    """Takes in two strings, a word word and a number n; repeats the word number of times
+    Checks input for n to ensure it is numeric; does not check what is entered as word as any
+    input will be a string"""
+    if n.isdigit():
+        out_string = f'{word * int(n)}'
+        return out_string
+    else:
+        return 'Invalid input. Please try again by enetering a word and a number!'
+
 if __name__ == '__main__':
     app.run(debug=True)
