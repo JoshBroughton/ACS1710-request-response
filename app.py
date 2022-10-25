@@ -22,5 +22,15 @@ def mad_libs(adjective, noun):
     """Takes in two strings, an adjective and a noun, and displays a short story with them"""
     return f'It is a little known fact that a {adjective} {noun} was responsible for the fall of Rome.'
 
+@app.route('/multiply/<number1>/<number2>')
+def multiply_two_numbers(number1, number2):
+    """Takes in two numbers are route variables, validates input, then 
+    returns the product of the numbers or an error if they are not numbers"""
+    if number1.isdigit() and number2.isdigit():
+        product = int(number1) * int(number2)
+        return f'{number1} times {number2} is {product}'
+    else:
+        return 'Invalid inputs. Please try again by entering 2 numbers!'
+        
 if __name__ == '__main__':
     app.run(debug=True)
