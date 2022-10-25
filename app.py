@@ -1,4 +1,5 @@
 from flask import Flask
+from random import randint
 
 app = Flask(__name__)
 
@@ -42,6 +43,16 @@ def say_n_times(word, n):
         return out_string
     else:
         return 'Invalid input. Please try again by enetering a word and a number!'
+
+@app.route('/dicegame')
+def dice_game():
+    roll = randint(1, 6)
+    out_string = f'You rolled a {roll}.'
+    if roll == 6:
+        out_string += ' You won!'
+    else:
+        out_string += ' You lost!'
+    return out_string
 
 if __name__ == '__main__':
     app.run(debug=True)
