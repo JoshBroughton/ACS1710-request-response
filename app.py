@@ -39,7 +39,7 @@ def say_n_times(word, n):
     Checks input for n to ensure it is numeric; does not check what is entered as word as any
     input will be a string"""
     if n.isdigit():
-        out_string = f'{word * int(n)}'
+        out_string = f'{word} ' * int(n)
         return out_string
     else:
         return 'Invalid input. Please try again by enetering a word and a number!'
